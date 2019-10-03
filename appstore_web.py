@@ -18,7 +18,12 @@ CACHEFOLDER = "cache"
 ICON  = "icon.png"
 SCREEN = "screen.png"
 
-ICONBLACKLIST = "modules/appstore/icon_blacklist.txt"
+lib_path = os.path.dirname(os.path.realpath(__file__))
+#To blacklist icons
+#create a file in the same folder as this on
+#Call it icon_blacklist.txt
+#Put the package name you'd like to blacklist on it's own line 
+ICONBLACKLIST = os.path.join(lib_path, "icon_blacklist.txt")
 if os.path.isdir(ICONBLACKLIST):
     with open(ICONBLACKLIST) as blacklistfile:
         ICONBLACKLIST = blacklistfile.read()
